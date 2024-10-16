@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}"/>
+    <title>Calculator</title>
+</head>
+<body>
+<div class="back">
+    <div class="registration-form">
+        <header>
+            <h1>Calculator</h1>
+            <p>Enter your expression below</p>
+        </header>
+        <form action="/calculate" method="get">
+            <div class="input-section">
+                <input type="text" name="expression" placeholder="Enter expression" required/>
+                <button class="animated-button next-button" type="submit">Calculate</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

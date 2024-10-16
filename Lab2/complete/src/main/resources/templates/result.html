@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}"/>
+    <title>Result</title>
+</head>
+<body>
+<div class="back">
+    <div class="registration-form">
+        <header>
+            <h1>Result:</h1>
+            <p>
+                <span th:text="${result}" class="result-message"></span>
+                <span th:text="${error}" class="result-error"></span>
+            </p>
+        </header>
+        <div class="input-section">
+            <a href="/" class="animated-button next-button" style="display: flex; justify-content: center; align-items: center; height: 75px; width: 100%;">Go back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
