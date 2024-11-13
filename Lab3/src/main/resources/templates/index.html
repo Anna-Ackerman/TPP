@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Executor</title>
+</head>
+<body>
+<h2>Виконання SQL-запиту</h2>
+<form id="sqlForm">
+    <label for="query">Запит:</label>
+    <br/>
+    <input type="text" id="query" name="query" style="width: 35%; height: 50px;">
+    <br/>
+    <button type="button" onclick="executeQuery()">Виконати</button>
+</form>
+
+
+<h3>Результат:</h3>
+<div id="result"></div>
+
+<script>
+    function executeQuery() {
+        const query = document.getElementById('query').value;
+        fetch('/music/execute', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({ query })
+        })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerHTML = data;
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = "Error: " + error.message;
+            });
+    }
+</script>
+</body>
+</html>
